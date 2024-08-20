@@ -1,0 +1,1 @@
+service { "MODULE1::ORDERS" as  "ORDERS" ;}

@@ -1,0 +1,26 @@
+namespace MODULE1;
+		
+			
+entity MAT_MAST {			
+    MATID     : String(18);			
+    MAT_GROUP : String(9);			
+   CREATEDON : LocalDate;			
+    MAT_TYPE  : String(4);			
+    OLD_MATID : String(18);			
+    PLANT     : String(10);			
+    COMP_CODE : String(10);			
+};			
+			
+entity ORDERS {			
+ key   ORDID      : String(10);			
+    ORDER_DATE : LocalDate;			
+    REQ_DATE   : LocalDate;			
+    CUSTID    : String(10);			
+    MATID      : String(18);			
+    EMPID      : String(10);			
+    ORDER_QTY  : Decimal(17, 2);			
+    UNIT       : String(3);			
+    PRICE      : Decimal(17, 2);			
+    CURRENCY   : String(5);			
+    YR         : String(4);			
+};			

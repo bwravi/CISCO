@@ -1,0 +1,37 @@
+ID: MODULE1
+_schema-version: '2.1'
+description: MODULE
+version: 0.0.1
+modules:
+  - name: HDB
+    type: hdb
+    path: HDB
+    requires:
+      - name: hdi_HDB
+  - name: nodejs
+    type: nodejs
+    path: nodejs
+    provides:
+      - name: nodejs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hdi_HDB
+      - name: HDB
+  - name: UI
+    type: html5
+    path: UI
+    requires:
+      - name: nodejs_api
+        group: destinations
+        properties:
+          name: tinyjs_be
+          url: '~{url}'
+resources:
+  - name: hdi_HDB
+    parameters:
+      config:
+        schema: MODULE1_SC
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
